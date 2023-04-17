@@ -6,24 +6,27 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "cars")
-public class Car {
+@Table(name = "users")
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column
-    private String model;
-    @Column(name = "cost_renting_one_day")
-    private Double costOfRentingOneDay;
+    @Column(name = "login")
+    private String login;
+    @Column(name = "password")
+    private String password;
+    @Column(name = "date_registration")
+    private Date dateOfRegistration;
+    @Column(name = "role_user")
+    private RolePerson role;
     @Column(name = "person_id")
-    @OneToMany
+    @OneToOne
     private Person person;
-    @Column(name = "car_status_id")
-    private CarStatus carStatus;
 }

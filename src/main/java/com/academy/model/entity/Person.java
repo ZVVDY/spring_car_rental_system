@@ -16,7 +16,7 @@ import java.util.Date;
 @Table(name = "person")
 public class Person {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "first_name")
     private String firstName;
@@ -28,8 +28,6 @@ public class Person {
     private String email;
     @Column(name = "phone_number")
     private String phoneNumber;
-    @Column(name = "role")
-    private RolePerson role;
     @Column(name = "order_id")
     @OneToMany
     private Order order;

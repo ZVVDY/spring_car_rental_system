@@ -11,10 +11,10 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
+@Table(name = "orders")
 public class Order {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "passport_number")
     private String passportNumber;
@@ -31,7 +31,9 @@ public class Order {
     @Column(name = "order_amount")
     private Double orderAmount;
     @Column(name = "person_id")
+    @ManyToOne
     private Person person;
+    @OneToOne
     @Column(name = "car_id")
     private Car car;
 }

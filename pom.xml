@@ -86,7 +86,7 @@
                     <locations>
                         <location>filesystem:src/main/resources/db/migration/flyway/migrations</location>
                     </locations>
-                    <url>jdbc:mysql://localhost:3306/test_2023</url>
+                    <url>jdbc:mysql://localhost:3306/car_rental_system</url>
                     <user>root</user>
                     <password>admin</password>
                 </configuration>
