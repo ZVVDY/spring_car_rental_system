@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
@@ -13,6 +16,7 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Table(name = "cars")
+@Component
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +26,9 @@ public class Car {
     @Column(name = "cost_renting_one_day")
     private Double costOfRentingOneDay;
     @Column(name = "person_id")
-    @OneToMany
+    @OneToOne
     private Person person;
     @Column(name = "car_status_id")
+    @OneToOne
     private CarStatus carStatus;
 }

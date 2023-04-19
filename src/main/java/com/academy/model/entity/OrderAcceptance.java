@@ -3,6 +3,8 @@ package com.academy.model.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
@@ -24,4 +26,7 @@ public class OrderAcceptance {
     @Column(name = "car_id")
     @OneToOne
     private Car car;
+    @OneToOne
+    @Column(name = "order_status_id")
+    private OrderStatus orderStatus;
     }

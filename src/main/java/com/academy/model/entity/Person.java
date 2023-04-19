@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -28,7 +30,9 @@ public class Person {
     private String email;
     @Column(name = "phone_number")
     private String phoneNumber;
+    @Column(name = "money_on_the_account")
+    private Double moneyOnTheAccount;
     @Column(name = "order_id")
-    @OneToMany
-    private Order order;
+    @OneToOne
+    private Order orders;
     }
