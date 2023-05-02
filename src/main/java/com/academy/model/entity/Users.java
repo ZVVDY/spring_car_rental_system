@@ -26,9 +26,10 @@ public class Users {
     private String password;
     @Column(name = "date_registration")
     private Date dateOfRegistration;
+    @Enumerated(EnumType.STRING)
     @Column(name = "role_user")
     private RolePerson role;
-    @Column(name = "person_id")
+    @JoinColumn(name = "person_id")
     @OneToOne
     private Person person;
 }

@@ -16,6 +16,8 @@ import java.util.Date;
 @Builder
 @Entity
 @Table(name = "person")
+
+//TODO
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,13 +28,18 @@ public class Person {
     private String surname;
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
+    @Column(name = "passport_number")
+    private String passportNumber;
     @Column(name = "email")
     private String email;
     @Column(name = "phone_number")
     private String phoneNumber;
+    @Column(name = "driver_license_number")
+    private String driverLicenseNumber;
+    @Column(name = "date_of_issue_driver_license")
+    private Date dateOfIssueOfTheDriverLicense;
+    @Column(name = "driving_experience")
+    private Double drivingExperience;
     @Column(name = "money_on_the_account")
     private Double moneyOnTheAccount;
-    @Column(name = "order_id")
-    @OneToOne
-    private Order orders;
     }

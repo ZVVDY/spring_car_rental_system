@@ -26,9 +26,9 @@ public class Car {
     @Column(name = "cost_renting_one_day")
     private Double costOfRentingOneDay;
     @Column(name = "person_id")
-    @OneToOne
+    //@OneToOne
     private Person person;
-    @Column(name = "car_status_id")
-    @OneToOne
+    //@Column(name = "car_status_id")
+    @ManyToOne
     private CarStatus carStatus;
 }

@@ -23,10 +23,4 @@ public class OrderAcceptance {
     private String typeOfDamageToTheCar;
     @Column(name = "cost_of_car_repair")
     private Double costOfCarRepair;
-    @Column(name = "car_id")
-    @OneToOne
-    private Car car;
-    @OneToOne
-    @Column(name = "order_status_id")
-    private OrderStatus orderStatus;
-    }
+        }

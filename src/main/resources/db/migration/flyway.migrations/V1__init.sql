@@ -37,7 +37,7 @@ create table person
     date_of_birth        timestamp        not null,
     email                varchar(256)     not null,
     phone_number         varchar(256)     not null,
-    money_on_the_account double precision not null,
+    money_on_the_account double precision ,
     primary key (id)
 );
 
