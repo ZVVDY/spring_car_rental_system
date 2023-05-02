@@ -25,10 +25,10 @@ public class Car {
     private String model;
     @Column(name = "cost_renting_one_day")
     private Double costOfRentingOneDay;
-    @Column(name = "person_id")
-    //@OneToOne
+    @JoinColumn (name = "person_id")
+    @OneToOne
     private Person person;
-    //@Column(name = "car_status_id")
+    @JoinColumn(name = "car_status_id")
     @ManyToOne
     private CarStatus carStatus;
 }
