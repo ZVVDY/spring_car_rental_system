@@ -3,8 +3,6 @@ package com.academy.model.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
@@ -23,4 +21,4 @@ public class OrderAcceptance {
     private String typeOfDamageToTheCar;
     @Column(name = "cost_of_car_repair")
     private Double costOfCarRepair;
-        }
+}

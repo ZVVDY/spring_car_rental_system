@@ -4,11 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -25,7 +23,7 @@ public class Users {
     @Column(name = "password")
     private String password;
     @Column(name = "date_registration")
-    private Date dateOfRegistration;
+    private LocalDate dateOfRegistration;
     @Enumerated(EnumType.STRING)
     @Column(name = "role_user")
     private RolePerson role;

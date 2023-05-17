@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -25,7 +23,7 @@ public class Car {
     private String model;
     @Column(name = "cost_renting_one_day")
     private Double costOfRentingOneDay;
-    @JoinColumn (name = "person_id")
+    @JoinColumn(name = "person_id")
     @OneToOne
     private Person person;
     @JoinColumn(name = "car_status_id")

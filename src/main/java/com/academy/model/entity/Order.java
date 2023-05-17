@@ -3,11 +3,9 @@ package com.academy.model.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -20,9 +18,9 @@ public class Order {
     private Integer id;
 
     @Column(name = "rental_start_date")
-    private Date rentalStartDate;
+    private LocalDate rentalStartDate;
     @Column(name = "rental_end_date")
-    private Date rentalEndDate;
+    private LocalDate rentalEndDate;
     @Column(name = "order_amount")
     private Double orderAmount;
     @JoinColumn(name = "person_id")

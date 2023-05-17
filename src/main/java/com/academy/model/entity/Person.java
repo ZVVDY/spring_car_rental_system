@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -17,7 +15,6 @@ import java.util.Date;
 @Entity
 @Table(name = "person")
 
-//TODO
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,4 +39,4 @@ public class Person {
     private Double drivingExperience;
     @Column(name = "money_on_the_account")
     private Double moneyOnTheAccount;
-    }
+}
