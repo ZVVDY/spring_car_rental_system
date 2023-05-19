@@ -17,8 +17,9 @@ public class OrderAcceptance {
     private Integer id;
     @Column(name = "presence_of_damage_car")
     private Boolean presenceOfDamageToTheCar;
-    @Column(name = "type_of_damage_car")
-    private String typeOfDamageToTheCar;
-    @Column(name = "cost_of_car_repair")
-    private Double costOfCarRepair;
+    @ManyToOne
+    private Order order;
+    @OneToOne
+    @JoinColumn(name = "tape_of_damadge_car_id")
+    private TypeOfDamageCar typeOfDamageCar;
 }

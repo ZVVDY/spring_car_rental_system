@@ -19,25 +19,34 @@ create table order_status
     primary key (id)
 );
 
-create table users
+CREATE TABLE users
 (
-    id                int          not null auto_increment,
-    login             varchar(256) not null,
-    password          varchar(256) not null,
-    date_registration timestamp    not null,
-    role_user         varchar(256) not null,
-    primary key (id)
+    id                      bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    account_non_expired     bit(1) NOT NULL,
+    account_non_locked      bit(1) NOT NULL,
+    credentials_non_expired bit(1) NOT NULL,
+    enabled                 bit(1) NOT NULL,
+    password                varchar(255) DEFAULT NULL,
+    username                varchar(255) DEFAULT NULL
+);
+
+CREATE TABLE user_roles
+(
+    id    bigint NOT NULL PRIMARY KEY,
+    roles varchar(255) DEFAULT NULL,
+    FOREIGN KEY (id) REFERENCES users (id)
 );
 
 create table person
 (
-    id                   int              not null auto_increment,
-    first_name           varchar(256)     not null,
-    surname              varchar(256)     not null,
-    date_of_birth        timestamp        not null,
-    email                varchar(256)     not null,
-    phone_number         varchar(256)     not null,
-    money_on_the_account double precision ,
+    id                   int          not null auto_increment,
+    date_registration    timestamp    not null,
+    first_name           varchar(256) not null,
+    surname              varchar(256) not null,
+    date_of_birth        timestamp    not null,
+    email                varchar(256) not null,
+    phone_number         varchar(256) not null,
+    money_on_the_account double precision,
     primary key (id)
 );
 
@@ -66,8 +75,15 @@ create table order_acceptance
 (
     id                     int not null auto_increment,
     presence_of_damage_car bit,
-    type_of_damage_car     varchar(256),
     cost_of_car_repair     double precision,
+    primary key (id)
+);
+
+create table type_of_damage_car
+(
+    id                 int not null auto_increment,
+    type_of_damage     varchar(256),
+    cost_of_car_repair double precision,
     primary key (id)
 );
 

@@ -9,13 +9,13 @@
     <style><%@include file="../css/normalize.css"%></style>
 <%--    <link rel="stylesheet" href="../css/normalize.css">--%>
     <style><%@include file="../css/style.css"%></style>
-    <link rel="stylesheet" href="../css/style.css">
+<%--    <link rel="stylesheet" href="../css/style.css">--%>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700;900&family=Open+Sans:wght@500;700;800&display=swap"
-        rel="stylesheet">
+<%--    <link rel="preconnect" href="https://fonts.googleapis.com">--%>
+<%--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>--%>
+<%--    <link--%>
+<%--        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700;900&family=Open+Sans:wght@500;700;800&display=swap"--%>
+<%--        rel="stylesheet">--%>
     <title>Car Sharing</title>
 </head>
 
@@ -26,8 +26,8 @@
             <div class="header-bg"></div>
             <div class="navigation">
                 <div class="logo">
-                    <img src="../../../resources/images/Icon%20Logo%20Normal.svg" alt="">
-                    <p>car<span class="logo-span">sharing</span></p>
+                    <img src="../../WEB-INF/images/Icon%20Logo%20Normal.svg" alt="">
+                    <p>car<span> class="logo-span">sharing</span></p>
                 </div>
                 <div class="menu">
                     <a href="/">home</a>
@@ -51,7 +51,7 @@
 <!--                    </button>-->
                 </div>
                 <div class="header-arrow">
-                    <img src="../../../resources/images/Icon%20Arrow%20Down.svg" alt=""></div>
+                    <img src="../images/Icon%20Arrow%20Down.svg" alt=""></div>
 
             </div>
 
@@ -67,7 +67,7 @@
                 <h2> service</h2>
             </div>
             <div class="blog-boxes service-boxes">
-                <div class="box service-box"><img src="../../../resources/images/mini2.png" alt="">
+                <div class="box service-box"><img src="../images/mini2.png" alt="">
 <%--                    <h3>Lorem ipsum dolor sit.</h3>--%>
 <%--                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat cum similique aperiam laborum--%>
 <%--                        voluptatem minus reiciendis delectus veniam officiis necessitatibus.</p>--%>
@@ -76,7 +76,7 @@
                     </button>
                 </div>
 
-                <div class="box service-box"><img src="../../../resources/images/mini1.png" alt="">
+                <div class="box service-box"><img src="../images/mini1.png" alt="">
 <%--                    <h3>Lorem ipsum dolor sit.</h3>--%>
 <%--                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat cum similique aperiam--%>
 <%--                        laborum--%>
@@ -86,7 +86,7 @@
                     </button>
                 </div>
 
-                <div class="box service-box"><img src="../../../resources/images/mini3.png" alt="">
+                <div class="box service-box"><img src="../images/mini3.png" alt="">
 <%--                    <h3>Lorem ipsum dolor sit.</h3>--%>
 <%--                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat cum similique aperiam--%>
 <%--                        laborum--%>
@@ -105,7 +105,7 @@
                 <h2> contact</h2>
             </div>
             <div class="contact-box">
-                <img src="../../../resources/images/Form%20Photo.png" alt="">
+                <img src="../images/Form%20Photo.png" alt="">
                 <div class="form-box">
                     <form>
                         <div class="input-style">
@@ -143,7 +143,7 @@
     <footer>
 
         <div class="logo logo-footer">
-            <img src="../../../resources/images/Icon%20Logo%20Normal.svg" alt="">
+            <img src="../images/Icon%20Logo%20Normal.svg" alt="">
             <p>car<span class="logo-span">sharing</span></p>
         </div>
 

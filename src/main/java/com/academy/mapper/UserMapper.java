@@ -1,18 +1,18 @@
 package com.academy.mapper;
 
 import com.academy.dto.UsersDto;
-import com.academy.model.entity.Users;
+import com.academy.model.entity.User;
 import org.mapstruct.Mapper;
 
 import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
-    UsersDto toDto(Users model);
+    UsersDto toDto(User model);
 
-    Users toModel(UsersDto usersDto);
+    User toModel(UsersDto usersDto);
 
-    List<UsersDto> modelsToDto(List<Users> users);
+    List<UsersDto> modelsToDto(List<User> users);
 
-    List<Users> dtoToModels(List<UsersDto> cards);
+    List<User> dtoToModels(List<UsersDto> cards);
 }

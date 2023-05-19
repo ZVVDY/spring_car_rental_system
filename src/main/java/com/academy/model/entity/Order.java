@@ -16,7 +16,6 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     @Column(name = "rental_start_date")
     private LocalDate rentalStartDate;
     @Column(name = "rental_end_date")

@@ -1,23 +1,22 @@
 alter table users add (
-    person_id         int          ,
+    person_id         int   default null,
     FOREIGN KEY (person_id) REFERENCES person (id)
 );
 
 alter table person add (
-    order_id      int         ,
+    order_id      int   default null,
     FOREIGN KEY (order_id) REFERENCES orders (id)
 );
 
 alter table cars add (
-    person_id            int              ,
-    car_status_id        int              ,
-    FOREIGN KEY (person_id) REFERENCES person (id),
+
+    car_status_id        int    default null,
     FOREIGN KEY (car_status_id) REFERENCES car_status (id)
 );
 
 alter table orders add (
-    car_id                       int              ,
-    person_id            int              ,
+    car_id                       int    default null,
+    person_id            int       default null,
     order_status_id            int              not null,
     payment_status_id            int              not null,
     FOREIGN KEY (person_id) REFERENCES person (id),
@@ -27,8 +26,8 @@ alter table orders add (
 );
 
 alter table order_acceptance add (
-    car_id                 int ,
-    order_status_id            int              not null,
-    FOREIGN KEY (car_id) REFERENCES cars (id),
-    FOREIGN KEY (order_status_id) REFERENCES orders (id)
+    order_id            int              not null,
+    type_of_damage_car_id            int              not null,
+    FOREIGN KEY (order_id) REFERENCES orders (id),
+    FOREIGN KEY (type_of_damage_car_id) REFERENCES type_of_damage_car (id)
 );

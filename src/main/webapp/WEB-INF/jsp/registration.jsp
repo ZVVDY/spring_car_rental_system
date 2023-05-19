@@ -10,5 +10,5 @@
         <input type="password" name="password" id="password" placeholder=" " autocomplete="off" class="form-control-material" required />
         <label for="password">Password</label>
     </div>
-    <button type="submit" class="btn btn-primary btn-ghost">Login</button>
+    <button type="submit" class="btn btn-primary btn-ghost">Registration</button>
 </form>
