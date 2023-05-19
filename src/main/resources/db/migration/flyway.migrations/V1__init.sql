@@ -1,111 +1,90 @@
-create table passenger
-(
-    id              int         not null auto_increment,
-    first_name      varchar(40) not null,
-    sur_name        varchar(40) not null,
-    dob             varchar(40) not null,
-    sex             varchar(40) not null,
-    passport_number varchar(40) not null,
-    primary key (id)
-);
-
-create table city
-(
-    id      int          not null auto_increment,
-    title   varchar(256) not null,
-    country varchar(256) not null,
-    primary key (id)
-);
-
-create table plane
-(
-    id              int          not null auto_increment,
-    model           varchar(256) not null,
-    manufacturer    varchar(256) not null,
-    number_of_seats int          not null,
-    primary key (id)
-);
-
-create table crew
-(
-    id         int          not null auto_increment,
-    first_name varchar(40)  not null,
-    sur_name   varchar(40)  not null,
-    post       varchar(256) not null,
-    plane_id   int          not null,
-    primary key (id),
-    FOREIGN KEY (plane_id) REFERENCES plane (id)
-);
-
-create table route
-(
-    id                int              not null auto_increment,
-    arrival_date_time varchar(256)     not null,
-    duration          DOUBLE PRECISION not null,
-    departure_city_id int              not null,
-    arrival_city_id   int              not null,
-    primary key (id),
-    FOREIGN KEY (departure_city_id) REFERENCES city (id),
-    FOREIGN KEY (arrival_city_id) REFERENCES city (id)
-);
-
-create table plane_route
-(
-    id       int not null auto_increment,
-    plane_id int not null,
-    route_id int not null,
-    primary key (id),
-    FOREIGN KEY (plane_id) REFERENCES plane (id),
-    FOREIGN KEY (route_id) REFERENCES route (id)
-);
-
-create table order_status
-(
-    id           int         not null auto_increment,
-    status_order varchar(80) not null,
-    primary key (id)
-);
-
-
-create table orders
-(
-    id              int          not null auto_increment,
-    date_order      varchar(256) not null,
-    route_id        int          not null,
-    plane_id        int          not null,
-    passenger_id    int          not null,
-    order_status_id int          not null,
-    primary key (id),
-    FOREIGN KEY (route_id) REFERENCES route (id),
-    FOREIGN KEY (plane_id) REFERENCES plane (id),
-    FOREIGN KEY (passenger_id) REFERENCES passenger (id),
-    FOREIGN KEY (order_status_id) REFERENCES order_status (id)
-);
-
 create table payment_status
 (
     id             int         not null auto_increment,
     status_payment varchar(80) not null,
     primary key (id)
-
 );
 
-create table payment
+create table car_status
 (
-    id                int not null auto_increment,
-    orders_id         int not null,
-    payment_status_id int not null,
-    primary key (id),
-    FOREIGN KEY (orders_id) REFERENCES orders (id),
-    FOREIGN KEY (payment_status_id) REFERENCES payment_status (id)
+    id     int          not null auto_increment,
+    status varchar(256) not null,
+    primary key (id)
 );
 
-create table ticket
+create table order_status
 (
-    id           int              not null auto_increment,
-    number_place int              not null,
-    cost_place   double precision not null,
-    orders_id    int              not null,
-    primary key (id),
-    FOREIGN KEY (orders_id) REFERENCES orders (id)
+    id     int          not null auto_increment,
+    status varchar(256) not null,
+    primary key (id)
 );
+
+CREATE TABLE users
+(
+    id                      bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    account_non_expired     bit(1) NOT NULL,
+    account_non_locked      bit(1) NOT NULL,
+    credentials_non_expired bit(1) NOT NULL,
+    enabled                 bit(1) NOT NULL,
+    password                varchar(255) DEFAULT NULL,
+    username                varchar(255) DEFAULT NULL
+);
+
+CREATE TABLE user_roles
+(
+    id    bigint NOT NULL PRIMARY KEY,
+    roles varchar(255) DEFAULT NULL,
+    FOREIGN KEY (id) REFERENCES users (id)
+);
+
+create table person
+(
+    id                   int          not null auto_increment,
+    date_registration    timestamp    not null,
+    first_name           varchar(256) not null,
+    surname              varchar(256) not null,
+    date_of_birth        timestamp    not null,
+    email                varchar(256) not null,
+    phone_number         varchar(256) not null,
+    money_on_the_account double precision,
+    primary key (id)
+);
+
+create table cars
+(
+    id                   int              not null auto_increment,
+    model                varchar(256)     not null,
+    cost_renting_one_day double precision not null,
+    primary key (id)
+);
+
+create table orders
+(
+    id                           int              not null auto_increment,
+    passport_number              varchar(256)     not null,
+    rental_start_date            timestamp        not null,
+    rental_end_date              timestamp        not null,
+    driver_license_number        varchar(256)     not null,
+    date_of_issue_driver_license timestamp        not null,
+    driving_experience           double precision not null,
+    order_amount                 double precision not null,
+    primary key (id)
+);
+
+create table order_acceptance
+(
+    id                     int not null auto_increment,
+    presence_of_damage_car bit,
+    cost_of_car_repair     double precision,
+    primary key (id)
+);
+
+create table type_of_damage_car
+(
+    id                 int not null auto_increment,
+    type_of_damage     varchar(256),
+    cost_of_car_repair double precision,
+    primary key (id)
+);
+
+

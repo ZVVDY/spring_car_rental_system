@@ -5,33 +5,30 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
+@Table(name = "orders")
 public class Order {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "passport_number")
-    private String passportNumber;
     @Column(name = "rental_start_date")
-    private Date rentalStartDate;
+    private LocalDate rentalStartDate;
     @Column(name = "rental_end_date")
-    private Date rentalEndDate;
-    @Column(name = "driver_license_number")
-    private String driverLicenseNumber;
-    @Column(name = "date_of_issue_driver_license")
-    private Date dateOfIssueOfTheDriverLicense;
-    @Column(name = "driving_experience")
-    private Double drivingExperience;
+    private LocalDate rentalEndDate;
     @Column(name = "order_amount")
     private Double orderAmount;
-    @Column(name = "person_id")
+    @JoinColumn(name = "person_id")
+    @ManyToOne
     private Person person;
-    @Column(name = "car_id")
+    @ManyToOne
+    @JoinColumn(name = "car_id")
     private Car car;
+    @ManyToOne
+    @JoinColumn(name = "order_status_id")
+    private OrderStatus orderStatus;
 }

@@ -5,16 +5,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name = "order_status")
-public class OrderStatus {
+@Table(name = "type_of_damage_car")
+
+public class TypeOfDamageCar {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column
-    private String status;
+    @Column(name = "type_of_damage_car")
+    private String typeOfDamageToTheCar;
+    @Column(name = "cost_of_car_repair")
+    private Double costOfCarRepair;
 }

@@ -4,9 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
@@ -14,13 +12,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "order_acceptance")
 public class OrderAcceptance {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "presence_of_damage_car")
     private Boolean presenceOfDamageToTheCar;
-    @Column(name = "type_of_damage_car")
-    private String typeOfDamageToTheCar;
-    @Column(name = "cost_of_car_repair")
-    private Double costOfCarRepair;
-    @Column(name = "car_id")
-    private Car car;
-    }
+    @ManyToOne
+    private Order order;
+    @OneToOne
+    @JoinColumn(name = "tape_of_damadge_car_id")
+    private TypeOfDamageCar typeOfDamageCar;
+}

@@ -2,6 +2,7 @@ package com.academy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  *17.	Система Прокат автомобилей. Клиент выбирает Автомобиль из списка доступных.

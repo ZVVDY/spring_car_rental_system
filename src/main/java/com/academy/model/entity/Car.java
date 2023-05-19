@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
@@ -12,17 +13,17 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "car")
+@Table(name = "cars")
+@Component
 public class Car {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column
     private String model;
     @Column(name = "cost_renting_one_day")
     private Double costOfRentingOneDay;
-    @Column(name = "person_id")
-    private Person person;
-    @Column(name = "car_status_id")
+    @JoinColumn(name = "car_status_id")
+    @ManyToOne
     private CarStatus carStatus;
 }
