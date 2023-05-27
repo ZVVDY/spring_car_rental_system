@@ -1,7 +1,3 @@
-alter table user add (
-    person_id      int   default null,
-    FOREIGN KEY (person_id) REFERENCES person (id)
-    );
 alter table person add (
     order_id      int   default null,
     FOREIGN KEY (order_id) REFERENCES orders (id)

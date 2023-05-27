@@ -2,13 +2,13 @@ package com.academy.dto;
 
 import com.academy.model.entity.Person;
 import com.academy.model.entity.Role;
+import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
 @Data
-@RequiredArgsConstructor
 public class UserDto {
 
     private Integer id;
@@ -19,5 +19,4 @@ public class UserDto {
     private String password;
     private String userName;
     private List<Role> roles;
-    private Person person;
 }

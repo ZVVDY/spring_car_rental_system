@@ -10,7 +10,7 @@ public interface UserService {
     UserDto findById(Integer id);
 
     void save(UserDto userDto);
-
+    void save(User user);
     List<UserDto> findByUserId(Integer id);
 
     List<UserDto> findCompletedUser(Integer id);

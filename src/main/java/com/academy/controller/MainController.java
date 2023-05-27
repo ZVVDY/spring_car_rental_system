@@ -17,4 +17,9 @@ public class MainController {
         model.addAttribute("home", "Car Sharing");
         return "index";
     }
+    @GetMapping(value = "/main_page")
+    public String mainPage(Model model) {
+        model.addAttribute("main", "Car Sharing");
+        return "main_page";
+    }
 }

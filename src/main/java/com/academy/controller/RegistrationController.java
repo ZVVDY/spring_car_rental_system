@@ -6,6 +6,7 @@ import com.academy.model.entity.Role;
 import com.academy.model.entity.User;
 import com.academy.model.repository.UserRepository;
 import com.academy.service.UserService;
+import com.academy.util.UserValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import javax.validation.Valid;
 import java.util.Collections;
 import java.util.Map;
 
@@ -28,30 +29,48 @@ public class RegistrationController {
     @Autowired
     private UserService userService;
 
+    private UserValidator userValidator;
+
+//        @GetMapping("/registration")
+//    public String registrationPage(@ModelAttribute("userDto") UserDto userDto) {
+//        return "/registration";
+//    }
     @GetMapping("/registration")
-    public String registration(Model model) {
-        model.addAttribute("userForm", new User());
-        return "registration";
+    public String registrationPage(@ModelAttribute("user") User user) {
+        return "/registration";
     }
 
-    @PostMapping("/registration")
-    public String addUser(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
+//    @PostMapping("/registration")
+//    public String performRegistration(@ModelAttribute("userDto")  @Valid UserDto userDto,
+//                                      BindingResult bindingResult) {
+//        userValidator.validate(userDto, bindingResult);
+//UserDto newUser = new UserDto();
+//newUser.setUserName(userDto.getUserName());
+//newUser.setPassword(userDto.getPassword());
+////        if (bindingResult.hasErrors())
+////            return "/registration";
+//
+//        userService.save(newUser);
+//
+//        return "redirect:/";
+//    }
+        @PostMapping("/registration")
+        public String performRegistration (@ModelAttribute ("user") @Valid User user,
+                                           BindingResult bindingResult) {
+            userValidator.validate(user, bindingResult);
 
-        if (bindingResult.hasErrors()) {
-            return "registration";
-        }
-        if (!userForm.getPassword().equals(userForm.getPassword())){
-            model.addAttribute("passwordError", "Пароли не совпадают");
-            return "registration";
-        }
-//        if (!userService.registerNewUserAccount(.getUsername())){
-//            model.addAttribute("usernameError", "Пользователь с таким именем уже существует");
-//            return "registration";
-//        }
+            if (bindingResult.hasErrors()){
+                return "/registration";}
 
-        return "redirect:/";
+            userService.save(user);
+
+            return "redirect:/";
+        }
+
+
     }
-}
+
+
 
 
 

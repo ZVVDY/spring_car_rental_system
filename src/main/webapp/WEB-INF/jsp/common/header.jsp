@@ -21,7 +21,7 @@
                 <p>car<span class="logo-span">sharing</span></p>
             </div>
             <div class="menu">
-                <a href="/">home</a>
+                <a href="/main_page">home</a>
                 <a href="/order">order</a>
                 <a href="/service">service</a>
                 <a href="/contact">contact</a>

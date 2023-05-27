@@ -29,16 +29,13 @@ public class User implements UserDetails {
     private boolean enabled;
     private String password;
     private String username;
-    @JoinColumn(name = "person_id")
-    @OneToOne
-    private Person person;
     @Enumerated(EnumType.STRING)
     @ElementCollection(fetch = FetchType.EAGER)
     private List<Role> roles;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities = new ArrayList<>();
-        roles.forEach(role -> authorities.add( new SimpleGrantedAuthority(roles.toString())));
+        roles.forEach(role -> authorities.add( new SimpleGrantedAuthority(role.toString())));
         return authorities;
     }
 }

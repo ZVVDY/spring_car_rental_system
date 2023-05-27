@@ -1,14 +1,13 @@
 package com.academy.dto;
 
-import lombok.AllArgsConstructor;
+import com.academy.model.entity.Person;
+import com.academy.model.entity.User;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.Date;
+
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class PersonDto {
 
     private Integer id;
@@ -23,4 +22,5 @@ public class PersonDto {
     private Date dateOfIssueOfTheDriverLicense;
     private Double drivingExperience;
     private Double moneyOnTheAccount;
+    private User user;
 }
