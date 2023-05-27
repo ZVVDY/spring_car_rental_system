@@ -1,5 +1,5 @@
 package com.academy.model.entity;
 
-public enum RoleUser {
+public enum Role {
     ROLE_USER,ROLE_ADMIN
 }

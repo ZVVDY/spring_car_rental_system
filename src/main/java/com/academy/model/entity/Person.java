@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -21,6 +22,7 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "date_registration")
+    @DateTimeFormat(iso= DateTimeFormat.ISO.DATE)
     private LocalDate dateRegistration;
     @Column(name = "first_name")
     private String firstName;
@@ -42,4 +44,7 @@ public class Person {
     private Double drivingExperience;
     @Column(name = "money_on_the_account")
     private Double moneyOnTheAccount;
+    @JoinColumn(name = "user_id")
+    @OneToOne
+    private User user;
 }

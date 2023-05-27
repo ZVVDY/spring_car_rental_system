@@ -1,16 +1,16 @@
 package com.academy.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
 @Controller
 @RequiredArgsConstructor
-public class LoginController {
-    @GetMapping(value = "/login")
+public class PersonDataController {
+    @GetMapping(value = "/person_data")
     public String registrationPage(Model model) {
-        model.addAttribute("login", "Login");
-        return "login";
+        model.addAttribute("person_data", "Person_Data");
+        return "person_data";
     }
 }

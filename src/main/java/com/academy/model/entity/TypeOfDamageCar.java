@@ -17,6 +17,8 @@ public class TypeOfDamageCar {
     private Integer id;
     @Column(name = "type_of_damage_car")
     private String typeOfDamageToTheCar;
+    @Column
+    private String message;
     @Column(name = "cost_of_car_repair")
     private Double costOfCarRepair;
 }

@@ -1,4 +1,5 @@
 <%@ include file="common/header.jsp"%>
+
 <section class="service">
 
     <div class="blog-title service-title">
@@ -38,5 +39,4 @@
 
 
 </section>
-</main>
 <%@include file="common/footer.jsp"%>

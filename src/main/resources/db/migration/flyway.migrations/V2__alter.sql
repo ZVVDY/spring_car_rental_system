@@ -1,15 +1,13 @@
-alter table users add (
-    person_id         int   default null,
+alter table user add (
+    person_id      int   default null,
     FOREIGN KEY (person_id) REFERENCES person (id)
-);
-
+    );
 alter table person add (
     order_id      int   default null,
     FOREIGN KEY (order_id) REFERENCES orders (id)
 );
 
 alter table cars add (
-
     car_status_id        int    default null,
     FOREIGN KEY (car_status_id) REFERENCES car_status (id)
 );

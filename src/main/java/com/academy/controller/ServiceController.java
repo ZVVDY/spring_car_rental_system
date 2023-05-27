@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ServiceController {
     @GetMapping(value = "/service")
     public String servicePage(Model model) {
-        model.addAttribute("service", "Service");
+        model.addAttribute("service", "Service Car");
         return "service";
     }
 }

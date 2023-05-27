@@ -24,15 +24,7 @@
 
                 <div class="checkbox-style">
                     <input type="checkbox" id="checkbox" name="checkbox" value="consent"><label for="checkbox">
-                    <p> I hereby giv my personal data included in my application to be processed for the
-                        purposes of
-                        the recruitment process under the European Parliament’s and Council of the European
-                        Union
-                        Regulation on the Protection of Natural Persons as of 27 April 2016, with regard to
-                        the
-                        processing of personal data and on the free movement of such data, and repealing
-                        Directive
-                        95/46/EC (Data Protection Directive)</p>
+                    <p> I </p>
                 </label>
                 </div>
                 <div class="button-box">
@@ -45,5 +37,5 @@
         </div>
     </div>
 </section>
-</main>
+
 <%@include file="common/footer.jsp"%>

@@ -40,10 +40,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http
+//                .csrf()
+//                .disable()
                 .formLogin()
+                //.loginPage("/login.html")
                 .and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/order").hasAnyRole("USER")
-                .antMatchers(HttpMethod.GET, "/").anonymous();
+//                .loginProcessingUrl("/login")
+//                .defaultSuccessUrl("/index.jsp", true)
+//                .failureUrl("/login.html?error=true")
+               // .failureHandler(authenticationFailureHandler())
+//                .and()
+//                .authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/**").hasAnyRole("USER")
+                .antMatchers(HttpMethod.GET, "/**").hasRole("ADMIN");
+//                .antMatchers(HttpMethod.GET, "/").anonymous();
+
+
+
     }
 }

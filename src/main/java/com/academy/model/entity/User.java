@@ -18,33 +18,27 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "account_non_expired")
     private boolean accountNonExpired;
-    @Column(name = "account_non_locked")
     private boolean accountNonLocked;
-    @Column(name = "credentials_non_expired")
     private boolean credentialsNonExpired;
-    @Column(name = "enabled")
     private boolean enabled;
-    @Column
     private String password;
-    @Column(name = "username")
     private String username;
     @JoinColumn(name = "person_id")
     @OneToOne
     private Person person;
     @Enumerated(EnumType.STRING)
     @ElementCollection(fetch = FetchType.EAGER)
-    private List<RoleUser> roleUserList;
+    private List<Role> roles;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities = new ArrayList<>();
-        roleUserList.forEach(roleUser -> authorities.add( new SimpleGrantedAuthority(roleUserList.toString())));
+        roles.forEach(role -> authorities.add( new SimpleGrantedAuthority(roles.toString())));
         return authorities;
     }
 }
