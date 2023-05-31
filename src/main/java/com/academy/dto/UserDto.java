@@ -1,22 +1,22 @@
 package com.academy.dto;
 
-import com.academy.model.entity.Person;
 import com.academy.model.entity.Role;
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserDto {
-
     private Integer id;
     private Boolean accountNonExpired;
     private Boolean accountNonLocked;
     private Boolean credentialsNonExpired;
-    private Boolean accountEnabled;
+    private Boolean enabled;
     private String password;
-    private String userName;
+    private String username;
     private List<Role> roles;
 }

@@ -42,14 +42,26 @@
     <form:form method="POST" modelAttribute="user">
         <div class="user-box">
             <form:input type="text" path="username" placeholder="Username"
-                        autofocus="true"></form:input>
+                        autofocus="true"/>
             <label>Username</label>
+            <br>
+            <form:errors path="username"></form:errors>
+            <font color="white">${usernameError}</font>
+            <form:errors path="username"></form:errors>
+            <font color="white">${usernameError1}</font>
         </div>
+     <br>
+     <br>
         <div class="user-box">
-            <form:input type="password" path="password" placeholder="Password"></form:input>
+            <form:input type="password" path="password" placeholder="Password"/>
             <label>Password</label>
+            <form:errors path="password"></form:errors>
+            <font color="white">${passwordError}</font>
         </div>
         <button type="submit">Registration</button>
+     <br>
+         <form:errors path="password"></form:errors>
+     <font color="white">${passwordAndNameError}</font>
 <%--        <a href="#">--%>
 <%--            <span></span>--%>
 <%--            <span></span>--%>
@@ -58,7 +70,7 @@
 <%--            Submit--%>
 <%--        </a>--%>
     </form:form>
-</div>
+
 </nav>
 </body>
 </html>

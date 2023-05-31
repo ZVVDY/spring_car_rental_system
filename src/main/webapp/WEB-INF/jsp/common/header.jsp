@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <head>
     <style><%@include file="../../../resources/css/normalize.css"%></style>
@@ -22,9 +22,11 @@
             </div>
             <div class="menu">
                 <a href="/main_page">home</a>
-                <a href="/order">order</a>
+                <a href="/cars">share a car</a>
+                <a href="/orders">order</a>
                 <a href="/service">service</a>
                 <a href="/contact">contact</a>
+                <a href="/person_data">profile</a>
             </div>
 
         </div>

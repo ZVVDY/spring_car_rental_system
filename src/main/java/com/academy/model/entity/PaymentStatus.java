@@ -1,17 +1,16 @@
 package com.academy.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
+@Entity
+@Table(name = "payment_status")
 public class PaymentStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

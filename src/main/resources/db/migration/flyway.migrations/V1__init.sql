@@ -8,14 +8,14 @@ create table payment_status
 create table car_status
 (
     id         int          not null auto_increment,
-    car_status varchar(256) not null,
+    status_car varchar(256) not null,
     primary key (id)
 );
 
 create table order_status
 (
     id           int          not null auto_increment,
-    order_status varchar(256) not null,
+    status_order varchar(256) not null,
     primary key (id)
 );
 
@@ -39,15 +39,19 @@ CREATE TABLE user_roles
 
 create table person
 (
-    id                   int          not null auto_increment,
-    date_registration    timestamp    not null,
-    first_name           varchar(256) not null,
-    surname              varchar(256) not null,
-    date_of_birth        timestamp    not null,
-    email                varchar(256) not null,
-    phone_number         varchar(256) not null,
-    money_on_the_account double precision,
-    user_id              bigint       NOT NULL,
+    id                           int          not null auto_increment,
+    date_registration            timestamp    not null,
+    first_name                   varchar(256) not null,
+    surname                      varchar(256) not null,
+    date_of_birth                timestamp    not null,
+    passport_number              varchar(256) not null,
+    email                        varchar(256) not null,
+    phone_number                 varchar(256) not null,
+    driver_license_number        varchar(256) not null,
+    date_of_issue_driver_license timestamp    not null,
+    driving_experience           double precision,
+    money_on_the_account         double precision,
+    user_id                      bigint     ,
     primary key (id),
     FOREIGN KEY (user_id) REFERENCES user (id)
 );
@@ -63,13 +67,10 @@ create table cars
 create table orders
 (
     id                           int              not null auto_increment,
-    passport_number              varchar(256)     not null,
     rental_start_date            timestamp        not null,
     rental_end_date              timestamp        not null,
-    driver_license_number        varchar(256)     not null,
-    date_of_issue_driver_license timestamp        not null,
-    driving_experience           double precision not null,
     order_amount                 double precision not null,
+    massage               varchar(256)     default null,
     primary key (id)
 );
 

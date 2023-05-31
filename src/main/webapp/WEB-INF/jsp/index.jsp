@@ -22,7 +22,7 @@
                 </div>
                 <div class="menu">
                     <a href="/">home</a>
-                    <a href="/order">order</a>
+                    <a href="/orders">order</a>
                     <a href="/service">service</a>
                     <a href="/contact">contact</a>
                     <a href="/registration">registration</a>

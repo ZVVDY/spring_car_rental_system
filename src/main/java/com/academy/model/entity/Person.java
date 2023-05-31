@@ -1,16 +1,14 @@
 package com.academy.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -22,14 +20,14 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "date_registration")
-    @DateTimeFormat(iso= DateTimeFormat.ISO.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate dateRegistration;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "surname")
     private String surname;
     @Column(name = "date_of_birth")
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
     @Column(name = "passport_number")
     private String passportNumber;
     @Column(name = "email")
@@ -39,11 +37,12 @@ public class Person {
     @Column(name = "driver_license_number")
     private String driverLicenseNumber;
     @Column(name = "date_of_issue_driver_license")
-    private Date dateOfIssueOfTheDriverLicense;
+    private LocalDate dateOfIssueOfTheDriverLicense;
     @Column(name = "driving_experience")
     private Double drivingExperience;
     @Column(name = "money_on_the_account")
     private Double moneyOnTheAccount;
+    //@MapsId
     @JoinColumn(name = "user_id")
     @OneToOne
     private User user;

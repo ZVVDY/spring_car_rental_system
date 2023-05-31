@@ -1,15 +1,15 @@
 package com.academy.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Data
-@NoArgsConstructor
+@Getter
+@Setter
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -22,6 +22,8 @@ public class Order {
     private LocalDate rentalEndDate;
     @Column(name = "order_amount")
     private Double orderAmount;
+    @Column(name = "massage")
+    private String massage;
     @JoinColumn(name = "person_id")
     @ManyToOne
     private Person person;
@@ -31,4 +33,7 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "order_status_id")
     private OrderStatus orderStatus;
+    @ManyToOne
+    @JoinColumn(name = "payment_status_id")
+    private PaymentStatus paymentStatus;
 }

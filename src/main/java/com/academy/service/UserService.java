@@ -4,6 +4,7 @@ package com.academy.service;
 import com.academy.dto.UserDto;
 import com.academy.model.entity.User;
 
+import java.security.Principal;
 import java.util.List;
 
 public interface UserService {
@@ -19,5 +20,11 @@ public interface UserService {
 
     void deleteUser (Integer id);
 
-    public User registerNewUserAccount(UserDto accountDto);
+     User registerNewUserAccount(UserDto accountDto);
+
+     boolean saveUser(User user);
+
+     Integer findUserIdSession();
+
+
 }

@@ -57,8 +57,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .and()
 //                .authorizeRequests()
 //                .defaultSuccessUrl("/main_page", true)
-                .antMatchers(HttpMethod.GET, "/main_page","/order","/service").hasRole("USER")
-                .antMatchers(HttpMethod.GET, "/admin_page").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/main_page","/orders","/service","/cars_orders/polo").hasRole("USER")
+                .antMatchers(HttpMethod.GET, "admin/**","/cars_orders/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET, "/","/registration").anonymous();
 
 

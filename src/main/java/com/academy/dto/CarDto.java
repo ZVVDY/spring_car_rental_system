@@ -14,6 +14,5 @@ public class CarDto {
     private Integer id;
     private String model;
     private Double costOfRentingOneDay;
-    private Person person;
     private CarStatus carStatus;
 }

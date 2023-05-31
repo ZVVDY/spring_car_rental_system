@@ -2,7 +2,6 @@ package com.academy.mapper;
 
 import com.academy.dto.UserDto;
 import com.academy.model.entity.User;
-import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 
 import java.util.List;

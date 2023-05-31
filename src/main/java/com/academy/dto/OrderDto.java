@@ -1,20 +1,20 @@
 package com.academy.dto;
 
-import com.academy.model.entity.Car;
-import com.academy.model.entity.OrderStatus;
-import com.academy.model.entity.Person;
+import com.academy.model.entity.PaymentStatus;
 import lombok.Data;
-
-import java.time.LocalDate;
+import lombok.RequiredArgsConstructor;
 
 @Data
+@RequiredArgsConstructor
 public class OrderDto {
 
     private Integer id;
-    private LocalDate rentalStartDate;
-    private LocalDate rentalEndDate;
+    private String rentalStartDate;
+    private String rentalEndDate;
     private Double orderAmount;
-    private Person person;
-    private Car car;
-    private OrderStatus orderStatus;
+    private String massage;
+    private PersonDto personDto;
+    private CarDto carDto;
+    private OrderStatusDto orderStatusDto;
+    private PaymentStatusDto paymentStatusDto;
 }
