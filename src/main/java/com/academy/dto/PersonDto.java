@@ -1,8 +1,6 @@
 package com.academy.dto;
 
-import com.academy.model.entity.User;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
@@ -11,17 +9,19 @@ import java.time.LocalDate;
 public class PersonDto {
 
     private Integer id;
-    @DateTimeFormat(iso= DateTimeFormat.ISO.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDate dateRegistration;
     private String firstName;
     private String surname;
-    private String dateOfBirth;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDate dateOfBirth;
     private String passportNumber;
     private String email;
     private String phoneNumber;
     private String driverLicenseNumber;
-    private String dateOfIssueOfTheDriverLicense;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDate dateOfIssueOfTheDriverLicense;
     private Double drivingExperience;
     private Double moneyOnTheAccount;
-    private UserDto userdto;
+    private UserDto userDto;
 }

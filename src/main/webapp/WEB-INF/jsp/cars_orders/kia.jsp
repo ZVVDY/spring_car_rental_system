@@ -2,17 +2,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
+<html>
 <head>
-    <style><%@include file="../../../resources/css/normalize.css"%></style>
 
-    <style><%@include file="../../../resources/css/style.css"%></style>
-
-    <title>Car Sharing</title>
+    <title>Kia Order </title>
+    <%--  <link rel="stylesheet" href="/css/form.css">--%>
 </head>
 
 <body>
 <nav>
-
     <div class="header">
         <div class="header-bg"></div>
         <div class="navigation">
@@ -29,13 +27,29 @@
                 <a href="/person_data">profile</a>
                 <a href="<c:url value="/logout" />">exit</a>
             </div>
-
+            <br>
+    <%--@elvariable id="skoda" type=""--%>
+    <form:form method="post" modelAttribute="kia">
+            Kia-Rio-X-line, 1.6, Automatic transmission, Silver, 2021
+        <br>
+        Cost 16.70 $/hour
+        <img src="../../../resources/images/Kia-Rio-X-line-silver.png" alt="">
+        <form:errors path="rentalStartDate"></form:errors>
+        <font color="red">${CarError}</font>
+        <div class="user-box">
+            <form:input type="date" path="rentalStartDate" placeholder="rentalStartDate"/>
+            <label>Rental Start Date</label>
         </div>
-            <div class="header-arrow">
-                <img src="../../../resources/images/Icon%20Arrow%20Down.svg" alt=""></div>
-
+        <div class="user-box">
+            <form:input type="date" path="rentalEndDate" placeholder="rentalEndDate"/>
+            <label>Rental end Date</label>
         </div>
-
-    </div>
-    </div>
+        <button type="submit">Order Car</button>
+        <br>
+    </form:form>
+    <%--</div>--%>
 </nav>
+</body>
+    <%--</div>--%>
+
+</html>

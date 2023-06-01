@@ -2,7 +2,6 @@ package com.academy.service.impl;
 
 import com.academy.dto.UserDto;
 import com.academy.mapper.UserMapper;
-import com.academy.model.entity.Person;
 import com.academy.model.entity.Role;
 import com.academy.model.entity.User;
 import com.academy.model.repository.PersonRepository;
@@ -12,17 +11,11 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import java.security.Principal;
 import java.util.Arrays;
 import java.util.List;
 
@@ -79,6 +72,7 @@ public class UserServiceImpl implements UserService {
         User user = userMapper.toEntity(userDto);
         userRepository.save(user);
     }
+
     @Override
     public boolean saveUser(User user) {
         User userFromDB = userRepository.findByUsername(user.getUsername());

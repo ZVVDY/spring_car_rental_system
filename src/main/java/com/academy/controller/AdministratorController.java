@@ -23,9 +23,10 @@ public class AdministratorController {
         model.addAttribute("admin_page", "Admin Page Sharing Car");
         return "admin_page";
     }
+
     @GetMapping(value = "/order_admin")
     public String adminOrderPage(Model model) {
-        List <OrderDto> dtoList =  orderMapper.modelsToDto(orderRepository.findAll());
+        List<OrderDto> dtoList = orderMapper.modelsToDto(orderRepository.findAll());
         model.addAttribute("order", "Admin Page Sharing Car");
         return "order_admin";
     }

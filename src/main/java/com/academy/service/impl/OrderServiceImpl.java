@@ -1,11 +1,8 @@
 package com.academy.service.impl;
 
-import com.academy.dto.CarDto;
-import com.academy.dto.OrderDto;
-import com.academy.dto.PersonDto;
-import com.academy.mapper.OrderMapper;
-import com.academy.mapper.PersonMapper;
-import com.academy.model.entity.*;
+import com.academy.dto.*;
+import com.academy.mapper.*;
+import com.academy.model.entity.Order;
 import com.academy.model.repository.*;
 import com.academy.service.CarService;
 import com.academy.service.OrderService;
@@ -39,6 +36,10 @@ public class OrderServiceImpl implements OrderService {
 
     private final OrderMapper orderMapper;
     private final PersonMapper personMapper;
+    private final CarMapper carMapper;
+    private final CarStatusMapper carStatusMapper;
+    private final OrderStatusMapper orderStatusMapper;
+    private final PaymentStatusMapper paymentStatusMapper;
 
     private final CarService carService;
     private final UserService userService;
@@ -51,29 +52,31 @@ public class OrderServiceImpl implements OrderService {
     @Transactional
     @Override
     public void save(OrderDto orderDto) {
-        LocalDate rentalStartDate = LocalDate.parse(orderDto.getRentalStartDate());
-        LocalDate rentalEndDate = LocalDate.parse(orderDto.getRentalEndDate());
+        LocalDate rentalStartDate = orderDto.getRentalStartDate();
+        LocalDate rentalEndDate = orderDto.getRentalEndDate();
+//        LocalDate rentalEndDate = LocalDate.ofEpochDay(Long.parseLong(orderDto.getRentalEndDate()));
+        //long hours = ChronoUnit.HOURS.between(rentalStartDate, rentalEndDate);
         Period period = Period.between(rentalStartDate, rentalEndDate);
         int dayRental = Math.abs(period.getDays());
         int timeRental = dayRental * 24;
-        CarDto carDto = orderDto.getCarDto();
-        int numberIdCar = carDto.getId();
-        Car car = carRepository.getReferenceById(numberIdCar);
-        CarStatus carStatus =carStatusRepository.getReferenceById(2);
-        car.setCarStatus(carStatus);
-        Double costDayCar = car.getCostOfRentingOneDay();
+        CarDto carDtoOrder = orderDto.getCarDto();
+        int numberIdCar = carDtoOrder.getId();
+        CarDto carDto = carMapper.toDto(carRepository.getReferenceById(numberIdCar));
+        CarStatusDto carStatusDto = carStatusMapper.toDto(carStatusRepository.getReferenceById(2));
+        carDto.setCarStatusDto(carStatusDto);
+        Double costDayCar = carDto.getCostOfRentingOneDay();
         Double costRental = timeRental * costDayCar;
         orderDto.setOrderAmount(costRental);
         Integer userId = userService.findUserIdSession();
-        Person person = personRepository.getReferenceById(userId);
-        OrderStatus orderStatus = orderStatusRepository.getReferenceById(2);
-        orderStatus.setStatusOrder(orderStatus.getStatusOrder());
-        PaymentStatus paymentStatus = paymentStatusRepository.getReferenceById(1);
+        PersonDto personDto = personMapper.toDto(personRepository.getReferenceById(userId));
+        OrderStatusDto orderStatusDto = orderStatusMapper.toDto(orderStatusRepository.getReferenceById(2));
+        orderStatusDto.setStatusOrder(orderStatusDto.getStatusOrder());
+        PaymentStatusDto paymentStatusDto = paymentStatusMapper.toDto(paymentStatusRepository.getReferenceById(1));
+        orderDto.setPaymentStatusDto(paymentStatusDto);
+        orderDto.setPersonDto(personDto);
+        orderDto.setCarDto(carDto);
+        orderDto.setOrderStatusDto(orderStatusDto);
         Order order = orderMapper.toEntity(orderDto);
-        order.setPaymentStatus(paymentStatus);
-        order.setPerson(person);
-        order.setCar(car);
-        order.setOrderStatus(orderStatus);
         orderRepository.save(order);
     }
 
@@ -112,6 +115,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void deleteOrder(Integer id) {
-
+        int i = id;
+        OrderDto dto;
     }
 }

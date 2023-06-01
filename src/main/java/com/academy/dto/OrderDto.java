@@ -1,16 +1,20 @@
 package com.academy.dto;
 
-import com.academy.model.entity.PaymentStatus;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
 
 @Data
 @RequiredArgsConstructor
 public class OrderDto {
 
     private Integer id;
-    private String rentalStartDate;
-    private String rentalEndDate;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDate rentalStartDate;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDate rentalEndDate;
     private Double orderAmount;
     private String massage;
     private PersonDto personDto;

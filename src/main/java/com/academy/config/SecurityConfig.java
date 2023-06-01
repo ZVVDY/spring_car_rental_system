@@ -57,11 +57,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .and()
 //                .authorizeRequests()
 //                .defaultSuccessUrl("/main_page", true)
-                .antMatchers(HttpMethod.GET, "/main_page","/orders","/service","/cars_orders/polo").hasRole("USER")
+                .antMatchers(HttpMethod.GET, "/main_page","/orders","/service","/cars_orders/polo",
+                        "/cars_orders/skoda","/cars_orders/kia", "/cars_orders/gelly_atlas","/cars_orders/gelly_tugella").hasRole("USER")
                 .antMatchers(HttpMethod.GET, "admin/**","/cars_orders/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET, "/","/registration").anonymous();
-
-
-
     }
 }

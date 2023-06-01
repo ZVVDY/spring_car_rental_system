@@ -3,6 +3,7 @@ package com.academy.model.entity;
 import lombok.*;
 
 import javax.persistence.*;
+
 @Getter
 @Setter
 @AllArgsConstructor

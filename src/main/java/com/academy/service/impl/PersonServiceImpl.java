@@ -1,6 +1,7 @@
 package com.academy.service.impl;
 
 import com.academy.dto.PersonDto;
+import com.academy.dto.UserDto;
 import com.academy.mapper.PersonMapper;
 import com.academy.mapper.UserMapper;
 import com.academy.model.entity.Person;
@@ -18,7 +19,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -45,14 +45,15 @@ public class PersonServiceImpl implements PersonService {
         int age = dateNow.getYear();
         personDto.setDateRegistration(dateNow);
         personDto.setMoneyOnTheAccount(0.0);
-        LocalDate date = LocalDate.parse(personDto.getDateOfIssueOfTheDriverLicense());
+        LocalDate date = personDto.getDateOfIssueOfTheDriverLicense();
         int age2 = date.getYear();
         personDto.setDrivingExperience((double) (age - age2));
         Integer userId = userService.findUserIdSession();
         User user = userRepository.getReferenceById(userId);
-//        userDto= userMapper.toDto(principal);
+        UserDto userDto = userMapper.toDto(user);
+        personDto.setUserDto(userDto);
         Person person = personMapper.toModel(personDto);
-        person.setUser(user);
+        //person.setUser(user);
         personRepository.save(person);
     }
 
@@ -61,8 +62,6 @@ public class PersonServiceImpl implements PersonService {
     public List<PersonDto> findByPersonId(Integer id) {
         return null;
     }
-
-
 
 
     @Override

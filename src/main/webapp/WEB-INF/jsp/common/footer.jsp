@@ -7,20 +7,20 @@
 
     <div class="footer-links">
         <div class="column1">
-            <a href="#">Home page</a>
+            <a href="/main_page">Home page</a>
             <a href="#">abouts us</a>
             <a href="#">gallery</a>
-            <a href="#">share regulation</a>
+<%--            <a href="#">share regulation</a>--%>
         </div>
         <div class="column1">
             <a href="#">price</a>
-            <a href="#">our fleet</a>
+<%--            <a href="#">our fleet</a>--%>
             <a href="#">our clients</a>
             <a href="#">contact</a>
         </div>
     </div>
     <div class="footer-text">
-        <p>Copyright</p>
+        <p>Copyright 2023 Vladimir Zayats</p>
     </div>
 
 </footer>

@@ -51,7 +51,7 @@ create table person
     date_of_issue_driver_license timestamp    not null,
     driving_experience           double precision,
     money_on_the_account         double precision,
-    user_id                      bigint     ,
+    user_id                      bigint,
     primary key (id),
     FOREIGN KEY (user_id) REFERENCES user (id)
 );
@@ -66,11 +66,11 @@ create table cars
 
 create table orders
 (
-    id                           int              not null auto_increment,
-    rental_start_date            timestamp        not null,
-    rental_end_date              timestamp        not null,
-    order_amount                 double precision not null,
-    massage               varchar(256)     default null,
+    id                int              not null auto_increment,
+    rental_start_date timestamp        not null,
+    rental_end_date   timestamp        not null,
+    order_amount      double precision not null,
+    massage           varchar(256) default null,
     primary key (id)
 );
 

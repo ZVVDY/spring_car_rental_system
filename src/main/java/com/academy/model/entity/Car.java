@@ -1,7 +1,6 @@
 package com.academy.model.entity;
 
 import lombok.*;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 

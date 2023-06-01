@@ -24,6 +24,6 @@ public class PersonDataController {
     @PostMapping("/person_data")
     public String formPersonDataPage(@ModelAttribute("person") PersonDto personDto) throws ParseException {
         personService.save(personDto);
-        return "/person_data";
+        return "redirect:/main_page";
     }
 }

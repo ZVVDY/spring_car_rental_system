@@ -16,7 +16,8 @@ public interface OrderService {
     List<OrderDto> findCompletedUser(Integer id);
 
     List<OrderDto> findByPerson(PersonDto personDto);
+
     public List<OrderDto> findOrderPerson(Integer id);
 
-    void deleteOrder (Integer id);
+    void deleteOrder(Integer id);
 }

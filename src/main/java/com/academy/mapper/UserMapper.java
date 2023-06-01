@@ -10,7 +10,7 @@ import java.util.List;
 public interface UserMapper {
     UserDto toDto(User model);
 
-    User toEntity (UserDto usersDto);
+    User toEntity(UserDto usersDto);
 
     List<UserDto> modelsToDto(List<User> users);
 
